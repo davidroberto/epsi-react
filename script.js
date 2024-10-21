@@ -1,10 +1,13 @@
-const button = document.querySelector("button");
+const createDomElement = (tagName, text, className = null) => {
+  const domElement = document.createElement(tagName);
+  domElement.textContent = text;
 
-button.addEventListener("click", () => {
-  const message = document.createElement("p");
-  message.textContent = "Bien joué, t'as cliqué !";
+  if (className) {
+    domElement.classList.add(className);
+  }
 
-  const body = document.querySelector("body");
+  return domElement;
+};
 
-  body.appendChild(message);
-});
+const title = createDomElement("p", "mon super titre", "head-title");
+const div = createDomElement("div", "Bonjour div", "article-container");
